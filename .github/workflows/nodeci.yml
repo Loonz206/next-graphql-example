@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: "14.15.3"
       - run: npm install
-      - run: npm -g codecov
+      - run: npm install -g codecov
       - run: npm run lint
       - run: npm run test
       - run: npm run coverage
