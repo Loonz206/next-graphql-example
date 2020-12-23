@@ -20,4 +20,4 @@ jobs:
       - run: npm run coverage
       - run: codecov
       - run: |
-          bash <(curl -s https://codecov.io/bash) -f coverage/coverage.json
+          cat codecov.yml | curl --data-binary @- https://codecov.io/validate
