@@ -22,6 +22,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm install -g codecov
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Use Node.js ${{ matrix.node-version }}
+      - uses: actions/setup-node@v1
       - run: npm run lint
       - run: npm run test
       - run: npm run coverage
