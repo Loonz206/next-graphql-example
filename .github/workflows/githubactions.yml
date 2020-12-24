@@ -1,7 +1,29 @@
 name: Github Actions CI
-on: [push]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 jobs:
   build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+      - run: npm ci
+      - run: npm install -g codecov
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -9,19 +31,10 @@ jobs:
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
-      - name: Use Node.js
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: "14.15.3"
-      - run: npm install
-      - run: npm install -g codecov
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Use Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: "14.15.3"
+          node-version: ${{ matrix.node-version }}
       - run: npm run lint
       - run: npm run pretty
       - run: npm run test
