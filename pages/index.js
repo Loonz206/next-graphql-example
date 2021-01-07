@@ -1,9 +1,32 @@
+/* eslint-disable camelcase */
+/* eslint-disable react/prop-types */
 import React from "react";
 import Head from "next/head";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
-export default function Home(props) {
-  console.log(props);
+export default function Home({ users }) {
+  const renderUsers = users.map(({ id, login, avatar_url }) => {
+    return (
+      <div
+        key={id}
+        className="tile"
+        style={{
+          border: "1px solid black",
+          padding: "10px",
+          margin: "10px",
+          flex: "2",
+          borderRadius: "8px",
+        }}
+      >
+        <h3>{login}</h3>
+        <img
+          style={{ height: "auto", width: "100%", display: "block" }}
+          src={avatar_url}
+          alt={avatar_url + `images`}
+        />
+      </div>
+    );
+  });
   return (
     <div>
       <Head>
@@ -11,6 +34,9 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>Hello Next</h1>
+      <div className="container" style={{ display: "flex", flexWrap: "wrap" }}>
+        {renderUsers}
+      </div>
     </div>
   );
 }
