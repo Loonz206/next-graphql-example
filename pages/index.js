@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import Head from "next/head";
+import Image from "next/image";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
 export default function Home({ users }) {
@@ -19,7 +20,7 @@ export default function Home({ users }) {
         }}
       >
         <h3>{login}</h3>
-        <img
+        <Image
           style={{ height: "auto", width: "100%", display: "block" }}
           src={avatar_url}
           alt={avatar_url + `images`}
