@@ -4,6 +4,7 @@ import React from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+import HelloWorld from "../src/components/HelloWorld";
 
 export default function Home({ users }) {
   const renderUsers = users.map(({ id, login, avatar_url }) => {
@@ -35,6 +36,7 @@ export default function Home({ users }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>Hello Next</h1>
+      <HelloWorld />
       <div className="container" style={{ display: "flex", flexWrap: "wrap" }}>
         {renderUsers}
       </div>
