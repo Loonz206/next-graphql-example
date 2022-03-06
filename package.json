@@ -26,10 +26,10 @@
     "sass": "^1.49.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/plugin-syntax-jsx": "^7.12.1",
-    "@babel/preset-env": "^7.12.11",
-    "@babel/preset-react": "^7.12.10",
+    "@babel/core": "^7.17.2",
+    "@babel/plugin-syntax-jsx": "^7.16.7",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@testing-library/jest-dom": "^5.11.6",
