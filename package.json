@@ -16,7 +16,7 @@
     "validate": "npm-run-all --parallel check-format lint"
   },
   "dependencies": {
-    "@apollo/client": "^3.7.0",
+    "@apollo/client": "^3.7.2",
     "apollo-server-micro": "^3.10.2",
     "axios": "^0.25.0",
     "graphql": "^15.8.0",
