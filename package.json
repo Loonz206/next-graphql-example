@@ -28,7 +28,7 @@
   "devDependencies": {
     "@babel/core": "^7.21.4",
     "@babel/plugin-syntax-jsx": "^7.21.4",
-    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-env": "^7.22.6",
     "@babel/preset-react": "^7.12.10",
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^11.0.0",
